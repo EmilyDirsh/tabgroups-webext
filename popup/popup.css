@@ -1,0 +1,22 @@
+html, body {
+  width: 150px;
+}
+button {
+  cursor: pointer;
+}
+
+button.action {
+  width: 100%;
+  background: #eefff0;
+  border: none;
+  border-radius: 2px;
+  color: black;
+  padding: 3px 5px;
+  margin: 3px auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
