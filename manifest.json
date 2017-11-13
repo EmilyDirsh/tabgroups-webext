@@ -4,6 +4,12 @@
   "name": "Tab Groups WebExtension",
   "version": "0.1",
 
+  "applications": {
+    "gecko": {
+      "id": "tabgroups@webextensions"
+    }
+  },
+
   "description": "Tab groups webextension WIP",
   "icons": {
     "48": "icons/icon.svg",
@@ -16,6 +22,10 @@
     "sessions",
     "storage"
   ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
 
   "browser_action": {
     "default_icon": "icons/icon.svg",
