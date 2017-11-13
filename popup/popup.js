@@ -23,4 +23,3 @@ document.addEventListener("click", function (e) {
     handleAction(e.target.dataset.action);
   }
 });
-k

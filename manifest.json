@@ -1,4 +1,4 @@
-{
+  {
 
   "manifest_version": 2,
   "name": "Tab Groups WebExtension",
@@ -14,7 +14,8 @@
     "activeTab",
     "tabs",
     "sessions",
-    "storage"
+    "storage",f
+    "cookies"
   ],
 
   "browser_action": {
