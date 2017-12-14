@@ -1,20 +1,22 @@
-var _currWin = function() {
+"use strict";
+
+const _currWin = function() {
   return browser.windows.getCurrent();
 }
 
-var _getExistingView = function(winId) {
+const _getExistingView = winId => {
   return browser.sessions.getWindowValue(winId, "groupView");
 }
 
-var _setViewInformation = function(winId, tab) {
+const _setViewInformation = function(winId, tab) {
   browser.sessions.setWindowValue(winId, "groupView", tab.id);
 }
 
-var _unsetViewInformation = function(winId) {
+const _unsetViewInformation = winId => {
   browser.sessions.removeWindowValue(winId, "groupView")
 }
 
-var _newGroupView = function(winId) {
+const _newGroupView = winId => {
   browser.tabs.create({
     active: true,
     url: "/group_view/group_view.html"
@@ -23,7 +25,7 @@ var _newGroupView = function(winId) {
   });
 }
 
-var viewGroups = function() {
+const viewGroups = () => {
   var currentWindow;
   _currWin()
   .then((win) => {
@@ -31,7 +33,7 @@ var viewGroups = function() {
     return _getExistingView(currentWindow);
   })
   .then((tabId) => {
-    console.log('tab', tabId);
+    // console.log('tab', tabId);
     if (tabId) {
       browser.tabs.update(tabId, {active: true})
         .then(null, (error) => {
@@ -47,7 +49,7 @@ var viewGroups = function() {
   });
 }
 
-var removeGroupView = function(tabId) {
+const removeGroupView = tabId => {
   var currentWindow;
   _currWin
   .then((win) => {
@@ -61,7 +63,7 @@ var removeGroupView = function(tabId) {
   });
 }
 
-var _handleAction = function(action) {
+const _handleAction = action => {
   switch(action) {
     case 'view':
       viewGroups();
@@ -69,7 +71,7 @@ var _handleAction = function(action) {
   }
 }
 
-var _handleMessage = function(message, sender) {
+const _handleMessage = (message, sender) => {
   switch(message.type) {
     case 'action':
       _handleAction(message.action);
